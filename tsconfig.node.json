@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.base.json",
+    "include": [
+        "src/**/*",
+        "node_modules/@types",
+        "eslint.config.js",
+        "./vite.config.ts"
+    ],
+    "exclude": [],
+    "compilerOptions": {
+        "types": [
+            "@lesnoypudge/types-global-base",
+            "@lesnoypudge/types-global-node",
+        ]
+    }
+}

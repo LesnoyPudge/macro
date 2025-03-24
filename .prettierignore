@@ -1,0 +1,7 @@
+build
+dist
+coverage
+*.js
+*.jsx
+*.ts
+*.tsx
