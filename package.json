@@ -1,7 +1,7 @@
 {
     "name": "@lesnoypudge/macro",
     "author": "LesnoyPudge",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "lesnoypudge's macro",
     "license": "ISC",
     "keywords": [
@@ -17,7 +17,7 @@
     "types": "./build/index.d.ts",
     "main": "./build/index.js",
     "scripts": {
-        "publish:npm": "npm publish --access public",
+        "publish:npm": "vite build && npm publish --access public",
         "deploy": "git add . && git commit -m 'update' && git push && git status",
         "build": "vite build"
     },
