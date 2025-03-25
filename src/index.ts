@@ -67,9 +67,16 @@ const getDecoratorTarget = (currentExpression: Traverse.NodePath) => {
         currentExpressionIndex + 1,
     );
 
-    const functionToWrap = sliceToFindFrom.find((node) => {
-        return t.isVariableDeclaration(node);
-    });
+    const functionToWrap = sliceToFindFrom.map((node) => {
+        if (t.isVariableDeclaration(node)) return node;
+
+        if ((
+            t.isExportNamedDeclaration(node)
+            && t.isVariableDeclaration(node.declaration)
+        )) return node.declaration;
+
+        return;
+    }).find(Boolean);
     invariant(functionToWrap, 'Can not find function to decorate');
 
     invariant(functionToWrap.declarations.length <= 1,
